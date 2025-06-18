@@ -224,7 +224,18 @@ EventID + ' - ' + (__message.indexOf('\\r\\r\\n') > -1 ? __message.substring(0,_
 
 ![image](https://github.com/user-attachments/assets/1bfffd61-169a-4b03-aada-a18625f081a6)
 
-### 2.4. Capture `EventID__value` field
+### 2.4. Adding accounts-related information to the event
+
+|Name|Value expression|
+|---|---|
+|SubjectAccount|`SubjectDomainName && SubjectUserName ? SubjectDomainName + '\\' + SubjectUserName : null`|
+|TargetAccount|`TargetDomainName && TargetUserName ? TargetDomainName + '\\' + TargetUserName : null`|
+|Account|`TargetAccount \|\| SubjectAccount ? (TargetAccount ? TargetAccount : SubjectAccount) : null`|
+|AccountType|`Account ? (/NT Service\|NT AUTHORITY\|\$/.test(Account) ? 'Machine' : 'User') : null`|
+
+![image](https://github.com/user-attachments/assets/93fc60a3-b9e4-46c7-a0b6-12a9d7445d45)
+
+### 2.5. Capture `EventID__value` field
 
 Some events like `Windows PowerShell` has EventID field as such:
 
@@ -238,7 +249,7 @@ Add rename of `EventID__value` to `EventID` to send it correctly:
 
 ![image](https://github.com/user-attachments/assets/97791bbf-05b5-46e6-bf48-b35401d8564b)
 
-### 2.5. Drop unused `ThreadID`, `ProcessID` and `EventID_Qualifiers` fields
+### 2.6. Drop unused `ThreadID`, `ProcessID` and `EventID_Qualifiers` fields
 
 Edit the existing eval function to drop `ThreadID`, `ProcessID` and `EventID_Qualifiers`
 
