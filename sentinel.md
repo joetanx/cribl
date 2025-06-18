@@ -128,7 +128,7 @@ Configuration of Sentinel as data destination in Cribl can be done using `URL` o
 >
 > The client ID is entered as a json constant (i.e. enclosing the value with backticks <code>`</code>)
 
-![image](https://github.com/user-attachments/assets/28e1068e-928b-4299-b5d4-003175e2c6f3)
+![image](https://github.com/user-attachments/assets/f94accb8-1aa5-4d3c-9b47-dd4d2303a511)
 
 ### 3.3. Test the data destination
 
@@ -138,193 +138,63 @@ Configuration of Sentinel as data destination in Cribl can be done using `URL` o
 
 ## 4. Get Cribl packs for Sentinel
 
+There are a couple of Sentinel packs in the Dispensary that works out of the box
+
 Processing → Packs → Add Pack → Add from Dispensary
 
-![image](https://github.com/user-attachments/assets/54f4ce5b-b383-4372-ae60-a74a7f87b24a)
+![image](https://github.com/user-attachments/assets/4962989e-2170-4c9a-b149-a27ef94d15db)
 
 Search for `Sentinel`
 
-![image](https://github.com/user-attachments/assets/7ddca5dd-5284-443a-a618-34ecdd45ef74)
+![image](https://github.com/user-attachments/assets/0cd81a54-ebb1-4a80-8579-ac3d932fd6d9)
 
 The `Microsoft Sentinel` pack by Christoph Dittmann (cdittmann@cribl.io) includes a wef pipeline to parse Windows events to columns in the SecurityEvent table
 
-![image](https://github.com/user-attachments/assets/6d4217a4-e186-41d3-8ac4-da8e27747e7f)
+![image](https://github.com/user-attachments/assets/d9597558-7730-4f41-b975-2a637d05baab)
 
 The `Microsoft Sentinel Syslog` pack by Dan Schmitz (dschmitz@cribl.io) includes a syslog pipeline to parse syslog events to columns in the Syslog table
 
-![image](https://github.com/user-attachments/assets/89e9de3c-9ab2-4b45-a967-2d0f5b6c88d3)
+![image](https://github.com/user-attachments/assets/7584645f-e036-4afb-8a1f-d19d2984a407)
 
-## 5. Configure pipelines
+### 4.1. Customize pipelines to transform events to Sentinel
 
-### 5.1. Syslog pipeline
+While the packs work out of the box in sending events to Sentinel, some fine-tuning can be done to tweak such that the details sent by Cribl aligns with events sent via AMA.
 
-Go to the `Microsoft Sentinel Syslog` pack and copy the `sentinel_syslog` pipeline
+The fine-tuning can be found here: https://github.com/joetanx/cribl/edit/main/pipelines.md
 
-![image](https://github.com/user-attachments/assets/8ebcc2e6-f576-49fa-a946-aa8149f68433)
-
-Paste the pipeline
-
-![image](https://github.com/user-attachments/assets/c25261e7-d978-4e2d-af1c-3caf27819919)
-
-![image](https://github.com/user-attachments/assets/8db4a330-f7f4-4741-9192-1ae5d65ef6c6)
-
-Edit the `Eval` step of the pipeline:
-- Change `String(facility) || facilityName` to `facilityName` for the `Facility` field
-  - Sentinel accepts `facilityName` (name) but not `facility` (number) for the `Facility` column
-- Add field for `SourceSystem`: `'Cribl'`
-- Add `SourceSystem` under `Keep fields`
-
-![image](https://github.com/user-attachments/assets/f73ab931-81b6-4a8d-acbe-40c7f88746fa)
-
-### 5.2. WEF pipeline
-
-Go to the `Microsoft Sentinel` pack and copy the `wef_security_events` pipeline
-
-![image](https://github.com/user-attachments/assets/a159426d-9a3a-4a81-addd-182fdcc30c45)
-
-Paste the pipeline
-
-![image](https://github.com/user-attachments/assets/c25261e7-d978-4e2d-af1c-3caf27819919)
-
-![image](https://github.com/user-attachments/assets/fcc68842-57c8-4e84-8051-13261255793f)
-
-#### 5.2.1. Including `EventData` field
-
-##### `EventData` field for AMA-ingested event
-
-AMA conditionally enriches the `EventData` field depending on the type of event
-
-Logon failure event (`4625`) does not have `EventData` field populated:
-
-![image](https://github.com/user-attachments/assets/7be6f589-d838-4ee0-99ab-8c9189bd0ad3)
-
-While privileged service event (`4673`) has the `EventData` field as XML, and LAW displays it as a multi-line XML:
-
-![image](https://github.com/user-attachments/assets/a78b9881-f551-4068-8162-7f17d12436fa)
-
-##### Keeping `EventData` in Cribl
-
-A XML or JSON copy of the `EventData` can be contained in the `EventData` field by enabling step 2 or step 6 of the pipeline
-
-![image](https://github.com/user-attachments/assets/e58ace4e-d85c-4035-a17e-b2ae7ad3061d)
-
-The affects how Sentinel receives the event
-
-**XML**:
-
-The original JS checks for `<UserData>` and uses `<UserData>` if it exists, otherwise uses `<EventData>`
-
-```js
-_raw.indexOf("<UserData>") > -1 ?
-  _raw.substring(_raw.indexOf("<UserData>"),_raw.indexOf("</UserData>") + "</UserData>".length) :
-  _raw.substring(_raw.indexOf("<EventData>"),_raw.indexOf("</EventData>") + "</EventData>".length)
-```
-
-This sends the `EventData` XML as a single line string to Sentinel:
-
-![image](https://github.com/user-attachments/assets/3c567c7e-fbbd-42d7-b64c-0a9dc9dafbdf)
-
-To capture just `<EventData>` and format it into a multi-line XML, replace the expression to the following:
-
-```js
-_raw.indexOf("<EventData>") > -1 ? _raw.substring(_raw.indexOf("<EventData>"),_raw.indexOf("</EventData>") + "</EventData>".length).replace(/Data>/g,"Data>\n") : ''
-```
-
-**JSON**:
-
-This sends the `_raw.Event.EventData.Data` array to Sentinel:
-
-![image](https://github.com/user-attachments/assets/24061221-278b-445a-b4ba-c1270c2ba1a8)
-
-#### 5.2.2. Enriching wef events
-
-A Windows security event ingested directly via AMA enriches the event with `Activity` and `LogonTypeName` fields, this can be done in Cribl via the `Lookup` function
-
-The lookup tables for:
-- Event messages according to the [common security events collected by sentinel](https://learn.microsoft.com/en-us/azure/sentinel/windows-security-event-id-reference) is available [here](/windows_security_events.csv)
-- [Logon types](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/basic-audit-logon-events) is available [here](/windows_logon_type.csv)
-
-Upload the csv to Knowledge → Lookups:
-
-![image](https://github.com/user-attachments/assets/148b8482-0c91-41f6-b9a6-8dc15c2cd98a)
-
-
-![image](https://github.com/user-attachments/assets/b2c08eac-eec0-4779-936b-2b3d9863b0f9)
-
-![image](https://github.com/user-attachments/assets/0ebbdd93-e6b5-4e02-abaa-31868ba32e1e)
-
-Add a lookup step to the pipeline for each `Activity` and `LogonTypeName` lookups:
-
-![image](https://github.com/user-attachments/assets/0c006dc6-c0d4-4cf8-94b9-7a10a0564c43)
-
-Place the lookup steps before the clean up step and configure the following:
-
-|Lookup file path|Lookup fields|Output fields|
-|---|---|---|
-|`windows_security_events.csv`|Lookup Field Name in Event: `EventID`<br>Corresponding Field Name in Lookup: `EventID`|Output Field Name from Lookup: `Activity`<br>Lookup Field Name in Event: `Activity`|
-|`windows_logon_type.csv`|Lookup Field Name in Event: `LogonType`<br>Corresponding Field Name in Lookup: `LogonType`|Output Field Name from Lookup: `LogonTypeName`<br>Lookup Field Name in Event: `LogonTypeName`|
-
-![image](https://github.com/user-attachments/assets/4c4e58c9-85ae-4c9a-9fd2-572810000c6d)
-
-![image](https://github.com/user-attachments/assets/65b0d6f4-ca1c-4dd9-8ddd-e48997dcffaa)
-
-The `Activity` and `LogonTypeName` columns in Sentinel gets populated according to the lookups:
-
-![image](https://github.com/user-attachments/assets/40151074-64da-4d8b-97fe-b76472ccc71a)
-
-#### 5.2.3. Capture `EventID__value` field
-
-Some events like `Windows PowerShell` has EventID field as such:
-
-```xml
-<EventID Qualifiers="0">403</EventID>
-```
-
-The XML parsing places this into `EventID_Qualifiers` and `EventID__value` fields
-
-Add rename of `EventID__value` to `EventID` to send it correctly:
-
-![image](https://github.com/user-attachments/assets/97791bbf-05b5-46e6-bf48-b35401d8564b)
-
-#### 5.2.4. Drop unused `ThreadID`, `ProcessID` and `EventID_Qualifiers` fields
-
-Edit the existing eval function to drop `ThreadID`, `ProcessID` and `EventID_Qualifiers`
-
-![image](https://github.com/user-attachments/assets/b276cfe7-c580-4f46-86ee-dded61f3c068)
-
-## 6. Configure routes
+## 5. Configure routes
 
 |Route|Source|Pipeline|Destination|
 |---|---|---|---|
 |route_wef_to_sentinel|`__inputId=='wef:in_wef'`|sentinel_wef_securityevent|sentinel:out_sentinel_securityevent|
 |route_syslog_to_sentinel|`__inputId.startsWith('syslog:in_syslog:')`|sentinel_syslog|sentinel:out_sentinel_syslog|
 
-![image](https://github.com/user-attachments/assets/711d899a-f880-4754-8859-4053f87d8354)
+![image](https://github.com/user-attachments/assets/a303b5fd-16ef-4a77-8a95-ab5fcb56f500)
 
-## 7. Verify data flow in Cribl
+## 6. Verify data flow in Cribl
 
 Sources:
 
-![image](https://github.com/user-attachments/assets/0770ae9d-f96e-4751-95f4-b5b0e371a3eb)
+![image](https://github.com/user-attachments/assets/52c7c967-77ba-4311-a7f0-4801604fda8c)
 
 Routes:
 
-![image](https://github.com/user-attachments/assets/e2a201db-f47b-43f0-a087-0c53892f83d5)
+![image](https://github.com/user-attachments/assets/dca1d4ca-e959-47c6-8abd-44713e8b2325)
 
 Pipelines:
 
-![image](https://github.com/user-attachments/assets/ee1d181d-3758-4cb2-8f39-bd90654177cb)
+![image](https://github.com/user-attachments/assets/a98e9caa-e4a6-48b7-8477-a6e76468d729)
 
 Destinations:
 
-![image](https://github.com/user-attachments/assets/043e4978-dbbe-475d-8b7d-655c8f1cf526)
+![image](https://github.com/user-attachments/assets/e470a829-5a7e-410f-b95f-62503101a173)
 
-## 8. Verify events ingested in Sentinel
+## 7. Verify events ingested in Sentinel
 
 SecurityEvent table:
 
-![image](https://github.com/user-attachments/assets/61b59d21-d2e9-40b3-b509-59a3fe02cb57)
+![image](https://github.com/user-attachments/assets/96725170-00a4-45ae-839c-c07de3cad904)
 
 Syslog table:
 
-![image](https://github.com/user-attachments/assets/334eee48-9c23-461a-8f3b-e2c4ccd8d39a)
+![image](https://github.com/user-attachments/assets/2bff8a08-5c80-4cc1-98ed-e1e52231d128)
