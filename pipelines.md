@@ -202,6 +202,28 @@ __e.__message = __e.__fields.split(',').reduce((msg, field, index) => msg.replac
 
 ![image](https://github.com/user-attachments/assets/a1ce694d-ecaa-475f-9748-22e6050dba1c)
 
+#### 2.3.3. Trim message and concatenate to event ID
+
+Several of the message templates are multi-line, the first line would be sufficient to enrich the event with activity information
+
+`Eval` can be used to:
+- Keep only the first line by checking for `\r\r\n` and then using `substring()` to trim `__message`
+- Appending `EventID` with `__message` can be done via template literal or string concatenation
+
+Template literal:
+
+```js
+`${EventID} - ${__message.indexOf('\\r\\r\\n') > -1 ? __message.substring(0,__message.indexOf('\\r\\r\\n')) : __message.substring(0,__message.length)}`
+```
+
+String concatenation:
+
+```js
+EventID + ' - ' + (__message.indexOf('\\r\\r\\n') > -1 ? __message.substring(0,__message.indexOf('\\r\\r\\n')) : __message.substring(0,__message.length))
+```
+
+![image](https://github.com/user-attachments/assets/1bfffd61-169a-4b03-aada-a18625f081a6)
+
 ### 2.4. Capture `EventID__value` field
 
 Some events like `Windows PowerShell` has EventID field as such:
