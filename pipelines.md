@@ -32,7 +32,7 @@ Paste the pipeline
 
 ### 2.1. Including `EventData` field
 
-##### `EventData` field for AMA-ingested event
+#### 2.1.1. `EventData` field for AMA-ingested event
 
 AMA conditionally enriches the `EventData` field depending on the type of event
 
@@ -44,15 +44,15 @@ While privileged service event (`4673`) has the `EventData` field as XML, and LA
 
 ![image](https://github.com/user-attachments/assets/a78b9881-f551-4068-8162-7f17d12436fa)
 
-##### Keeping `EventData` in Cribl
+#### 2.1.2. Keeping `EventData` in Cribl
 
 A XML or JSON copy of the `EventData` can be contained in the `EventData` field by enabling step 2 or step 6 of the pipeline
 
-![image](https://github.com/user-attachments/assets/e58ace4e-d85c-4035-a17e-b2ae7ad3061d)
+![image](https://github.com/user-attachments/assets/a3bd3978-e30a-4e1e-bfcf-1236911c6a15)
 
-The affects how Sentinel receives the event
+This affects how Sentinel receives the event
 
-**XML**:
+##### XML:
 
 The original JS checks for `<UserData>` and uses `<UserData>` if it exists, otherwise uses `<EventData>`
 
@@ -69,52 +69,140 @@ This sends the `EventData` XML as a single line string to Sentinel:
 To capture just `<EventData>` and format it into a multi-line XML, replace the expression to the following:
 
 ```js
-_raw.indexOf("<EventData>") > -1 ? _raw.substring(_raw.indexOf("<EventData>"),_raw.indexOf("</EventData>") + "</EventData>".length).replace(/Data>/g,"Data>\n") : ''
+_raw.indexOf("<EventData>") > -1 ? _raw.substring(_raw.indexOf("<EventData>"),_raw.indexOf("</EventData>") + "</EventData>".length).replace(/Data>/g,"Data>\n") : null
 ```
 
-**JSON**:
+![image](https://github.com/user-attachments/assets/afcbacae-847a-439e-aef4-f760c9aaab36)
+
+##### JSON:
 
 This sends the `_raw.Event.EventData.Data` array to Sentinel:
 
 ![image](https://github.com/user-attachments/assets/24061221-278b-445a-b4ba-c1270c2ba1a8)
 
-### 2.2. Enriching wef events
+### 2.2. Adding logon type name to the event
 
-A Windows security event ingested directly via AMA enriches the event with `Activity` and `LogonTypeName` fields, this can be done in Cribl via the `Lookup` function
+A Windows security event ingested directly by AMA is enriched with the logon type name according to the logon type numeric, this can be done in Cribl via the `Lookup` function
 
-The lookup tables for:
-- Event messages according to the [common security events collected by sentinel](https://learn.microsoft.com/en-us/azure/sentinel/windows-security-event-id-reference) is available [here](/windows_security_events.csv)
-- [Logon types](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/basic-audit-logon-events) is available [here](/windows_logon_type.csv)
+The logon type name lookup table: https://github.com/joetanx/cribl/blob/main/windows_logon_type.csv
 
 Upload the csv to Knowledge → Lookups:
 
-![image](https://github.com/user-attachments/assets/148b8482-0c91-41f6-b9a6-8dc15c2cd98a)
+![image](https://github.com/user-attachments/assets/39af7a6f-8b4c-424f-aca9-50a86e121aa8)
 
+![image](https://github.com/user-attachments/assets/b59bf094-6558-49c2-9782-f080ad869256)
 
-![image](https://github.com/user-attachments/assets/b2c08eac-eec0-4779-936b-2b3d9863b0f9)
+Add a lookup step to the pipeline:
 
-![image](https://github.com/user-attachments/assets/0ebbdd93-e6b5-4e02-abaa-31868ba32e1e)
+![image](https://github.com/user-attachments/assets/b10a290a-7624-4264-b86e-fd91193352b1)
 
-Add a lookup step to the pipeline for each `Activity` and `LogonTypeName` lookups:
+Lookup file path: `windows_logon_type.csv`
 
-![image](https://github.com/user-attachments/assets/0c006dc6-c0d4-4cf8-94b9-7a10a0564c43)
+Lookup fields:
 
-Place the lookup steps before the clean up step and configure the following:
+|Lookup Field Name in Event|Corresponding Field Name in Lookup|
+|---|---|
+|`LogonType`|`LogonType`|
 
-|Lookup file path|Lookup fields|Output fields|
-|---|---|---|
-|`windows_security_events.csv`|Lookup Field Name in Event: `EventID`<br>Corresponding Field Name in Lookup: `EventID`|Output Field Name from Lookup: `Activity`<br>Lookup Field Name in Event: `Activity`|
-|`windows_logon_type.csv`|Lookup Field Name in Event: `LogonType`<br>Corresponding Field Name in Lookup: `LogonType`|Output Field Name from Lookup: `LogonTypeName`<br>Lookup Field Name in Event: `LogonTypeName`|
+|Output Field Name from Lookup|Lookup Field Name in Event|
+|---|---|
+|`LogonTypeName`|`LogonTypeName`|
 
-![image](https://github.com/user-attachments/assets/4c4e58c9-85ae-4c9a-9fd2-572810000c6d)
+![image](https://github.com/user-attachments/assets/46499d89-8a12-4c73-9a7e-f39154d54c7c)
 
-![image](https://github.com/user-attachments/assets/65b0d6f4-ca1c-4dd9-8ddd-e48997dcffaa)
+### 2.3. Adding event message to the event
 
-The `Activity` and `LogonTypeName` columns in Sentinel gets populated according to the lookups:
+A Windows security event ingested directly by AMA is enriched with the event message according to the event ID
 
-![image](https://github.com/user-attachments/assets/40151074-64da-4d8b-97fe-b76472ccc71a)
+This can also be done in Cribl via the `Lookup` function, but need a bit more transformation to get the format correct
 
-### 2.3. Capture `EventID__value` field
+#### 2.3.1. Looking up event message template with event ID and provider name
+
+Event message lookup table: https://github.com/joetanx/cribl/blob/main/windows_event_id.csv
+
+Upload the csv to Knowledge → Lookups:
+
+![image](https://github.com/user-attachments/assets/39af7a6f-8b4c-424f-aca9-50a86e121aa8)
+
+![image](https://github.com/user-attachments/assets/0dc8b035-d19d-45bb-96fb-dec779c84a5e)
+
+Add a lookup step to the pipeline:
+
+![image](https://github.com/user-attachments/assets/b10a290a-7624-4264-b86e-fd91193352b1)
+
+Lookup file path: `windows_event_id.csv`
+
+Lookup fields:
+
+|Lookup Field Name in Event|Corresponding Field Name in Lookup|
+|---|---|
+|`EventID`|`event_code`|
+|`EventSourceName`|`provider`|
+
+|Output Field Name from Lookup|Lookup Field Name in Event|
+|---|---|
+|`template`|`__message`|
+|`fields`|`__fields`|
+
+This lookup function:
+- selects the row with the event ID and provider combination (because different providers can happen to use the same event ID)
+- returns the template and fields column
+  - template: the message template, may contain `%1`, `%2`, etc placeholders for the specified fields depending on the event
+  - fields: the fields to reference for each `%1`, `%2`, etc placeholders
+
+![image](https://github.com/user-attachments/assets/21b4bd60-3986-4c9d-afad-94ccf7dd5240)
+
+#### 2.3.2. Fill in event data to the message template placeholders
+
+A message template can contain 0 to N placeholders, this would need to have a loop or loopback function to map the fields to placeholders
+
+The code function is required to perform this:
+1. `__e.__fields.split(',')` converts the field names into an array
+2. `.reduce((msg, field, index) => ...)` iterates through the array, applying transformations to `__e.__message`
+3. `msg.replace(`%${index + 1}`, __e[field])` peplaces placeholders (`%1`, `%2`, etc.) in the message with corresponding values from `__e`
+
+```js
+__e.__message = __e.__fields.split(',').reduce((msg, field, index) => msg.replace(`%${index + 1}`, __e[field]), __e.__message)
+```
+
+> [!Tip]
+>
+> The special variable `__e` represents the `(context)` event inside a JavaScript expression.
+> - Using `__e` with _square bracket notation_, can access any field within the event object (e.g. `__e['hostname']`)
+> - In most cases, using `__e['field']` and `__e.field` are the same, but this notation **must be used** for fields that contain a special (non-alphanumeric) character like `user-agent`, `kubernetes.namespace_name`, or `@timestamp`
+> 
+> The special variable `__e` is useful in this case , consider below example event:
+> 
+> ```
+> {
+>   "EventID": 145,
+>   "Channel": "Microsoft-Windows-WinRM/Operational",
+>   "Computer": "DC.lab.vx",
+>   "Security_UserID": "S-1-5-20",
+>   "__message": "WSMan operation %1 started with resourceUri %2",
+>   "__fields": "operationName,resourceUri",
+>   "operationName": "Enumeration",
+>   "resourceUri": "http://schemas.microsoft.com/wbem/wsman/1/SubscriptionManager/Subscription",
+>   "EventSourceName": "Microsoft-Windows-WinRM",
+>   "Type": "SecurityEvent"
+> }
+> ```
+>
+> This JS produces `WSMan operation operationName started with resourceUri resourceUri`
+> 
+> ```js
+>__message.replace('%1',__fields.split(',')[0]).replace('%2',__fields.split(',')[1])
+> ```
+>
+> While this JS using `__e` produces `WSMan operation Enumeration started with resourceUri http://schemas.microsoft.com/wbem/wsman/1/SubscriptionManager/Subscription`
+> 
+> ```js
+> __message.replace('%1',__e[__fields.split(',')[0]]).replace('%2',__e[__fields.split(',')[1]])
+> ```
+
+![image](https://github.com/user-attachments/assets/a1ce694d-ecaa-475f-9748-22e6050dba1c)
+
+### 2.4. Capture `EventID__value` field
 
 Some events like `Windows PowerShell` has EventID field as such:
 
@@ -128,7 +216,7 @@ Add rename of `EventID__value` to `EventID` to send it correctly:
 
 ![image](https://github.com/user-attachments/assets/97791bbf-05b5-46e6-bf48-b35401d8564b)
 
-### 2.4. Drop unused `ThreadID`, `ProcessID` and `EventID_Qualifiers` fields
+### 2.5. Drop unused `ThreadID`, `ProcessID` and `EventID_Qualifiers` fields
 
 Edit the existing eval function to drop `ThreadID`, `ProcessID` and `EventID_Qualifiers`
 
