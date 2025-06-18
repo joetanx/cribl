@@ -173,7 +173,7 @@ __e.__message = __e.__fields.split(',').reduce((msg, field, index) => msg.replac
 > 
 > The special variable `__e` is useful in this case , consider below example event:
 > 
-> ```
+> ```json
 > {
 >   "EventID": 145,
 >   "Channel": "Microsoft-Windows-WinRM/Operational",
