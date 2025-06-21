@@ -49,7 +49,7 @@ Paste the DCE and LAW Resource IDs
 
 ![image](https://github.com/user-attachments/assets/c6e1a4b6-e82f-4a1e-8a37-49ea976caac4)
 
-Add role assignment to the DCR
+### 2.3. Add role assignment for Cribl to the DCR
 
 > [!Note]
 >
