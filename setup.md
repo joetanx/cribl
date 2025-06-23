@@ -547,4 +547,4 @@ Example wef output:
 
 ## 4. Microsoft Sentinel Integration
 
-Configure Cribl to send events to Sentinel: https://github.com/joetanx/sentinel/blob/main/cribl.md
+Configure Cribl to send events to Sentinel: https://github.com/joetanx/cribl/blob/main/sentinel.md
