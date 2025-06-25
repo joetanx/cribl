@@ -39,1748 +39,1704 @@
         "Custom-CommonSecurityLog": {
           "columns": [{
               "name": "Activity",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AdditionalExtensions",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ApplicationProtocol",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CollectorHostName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CommunicationDirection",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Computer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationDnsDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationHostName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationIP",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationMACAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationNTDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationPort",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DestinationProcessId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DestinationProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationServiceName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationTranslatedAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationTranslatedPort",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DestinationUserID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DestinationUserPrivileges",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceAction",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomDate1",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomDate1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomDate2",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomDate2Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomFloatingPoint1",
-              "type": "Real"
+              "type": "real"
             },
             {
               "name": "DeviceCustomFloatingPoint1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomFloatingPoint2",
-              "type": "Real"
+              "type": "real"
             },
             {
               "name": "DeviceCustomFloatingPoint2Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomFloatingPoint3",
-              "type": "Real"
+              "type": "real"
             },
             {
               "name": "DeviceCustomFloatingPoint3Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomFloatingPoint4",
-              "type": "Real"
+              "type": "real"
             },
             {
               "name": "DeviceCustomFloatingPoint4Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address1",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address2",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address2Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address3",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address3Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address4",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomIPv6Address4Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomNumber1",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DeviceCustomNumber1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomNumber2",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DeviceCustomNumber2Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceCustomNumber3",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "DeviceCustomNumber3Label",
-              "type": "String"
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString1",
-              "type": "String"
+              "name": "DeviceCustomstring1",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString1Label",
-              "type": "String"
+              "name": "DeviceCustomstring1Label",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString2",
-              "type": "String"
+              "name": "DeviceCustomstring2",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString2Label",
-              "type": "String"
+              "name": "DeviceCustomstring2Label",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString3",
-              "type": "String"
+              "name": "DeviceCustomstring3",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString3Label",
-              "type": "String"
+              "name": "DeviceCustomstring3Label",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString4",
-              "type": "String"
+              "name": "DeviceCustomstring4",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString4Label",
-              "type": "String"
+              "name": "DeviceCustomstring4Label",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString5",
-              "type": "String"
+              "name": "DeviceCustomstring5",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString5Label",
-              "type": "String"
+              "name": "DeviceCustomstring5Label",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString6",
-              "type": "String"
+              "name": "DeviceCustomstring6",
+              "type": "string"
             },
             {
-              "name": "DeviceCustomString6Label",
-              "type": "String"
+              "name": "DeviceCustomstring6Label",
+              "type": "string"
             },
             {
               "name": "DeviceDnsDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceEventCategory",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceEventClassID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceExternalID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceFacility",
-              "type": "String"
+              "type": "string"
             },
             {
-              "name": "DeviceInboundInterface",
-              "type": "String"
+              "name": "DeviceInboundinterface",
+              "type": "string"
             },
             {
               "name": "DeviceMacAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceNtDomain",
-              "type": "String"
+              "type": "string"
             },
             {
-              "name": "DeviceOutboundInterface",
-              "type": "String"
+              "name": "DeviceOutboundinterface",
+              "type": "string"
             },
             {
               "name": "DevicePayloadId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceProduct",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceTimeZone",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceTranslatedAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceVendor",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceVersion",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EndTime",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "EventCount",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "EventOutcome",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventType",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "ExternalID",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "ExtID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FieldDeviceCustomNumber1",
-              "type": "Long"
+              "type": "long"
             },
             {
               "name": "FieldDeviceCustomNumber2",
-              "type": "Long"
+              "type": "long"
             },
             {
               "name": "FieldDeviceCustomNumber3",
-              "type": "Long"
+              "type": "long"
             },
             {
               "name": "FileCreateTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileModificationTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FilePath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FilePermission",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileSize",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "FileType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FlexDate1",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FlexDate1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FlexNumber1",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "FlexNumber1Label",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FlexNumber2",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "FlexNumber2Label",
-              "type": "String"
+              "type": "string"
             },
             {
-              "name": "FlexString1",
-              "type": "String"
+              "name": "Flexstring1",
+              "type": "string"
             },
             {
-              "name": "FlexString1Label",
-              "type": "String"
+              "name": "Flexstring1Label",
+              "type": "string"
             },
             {
-              "name": "FlexString2",
-              "type": "String"
+              "name": "Flexstring2",
+              "type": "string"
             },
             {
-              "name": "FlexString2Label",
-              "type": "String"
+              "name": "Flexstring2Label",
+              "type": "string"
             },
             {
               "name": "IndicatorThreatType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LogSeverity",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MaliciousIP",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MaliciousIPCountry",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MaliciousIPLatitude",
-              "type": "Real"
+              "type": "real"
             },
             {
-              "name": "MaliciousIPLongitude",
-              "type": "Real"
+              "name": "MaliciousIPlongitude",
+              "type": "real"
             },
             {
               "name": "Message",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileCreateTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileModificationTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFilePath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFilePermission",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldFileSize",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "OldFileType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OriginalLogSeverity",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProcessID",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "ProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Protocol",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Reason",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ReceiptTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ReceivedBytes",
-              "type": "Long"
+              "type": "long"
             },
             {
               "name": "RemoteIP",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RemotePort",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ReportReferenceLink",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestClientApplication",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestContext",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestCookies",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestMethod",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestURL",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SentBytes",
-              "type": "Long"
+              "type": "long"
             },
             {
               "name": "SimplifiedDeviceAction",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceDnsDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceHostName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceIP",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceMACAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceNTDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourcePort",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SourceProcessId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SourceProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceServiceName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceSystem",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceTranslatedAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceTranslatedPort",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SourceUserID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceUserPrivileges",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "StartTime",
-              "type": "Datetime"
-            },
-            {
-              "name": "TenantId",
-              "type": "Guid"
+              "type": "datetime"
             },
             {
               "name": "ThreatConfidence",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ThreatDescription",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ThreatSeverity",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "TimeGenerated",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "Type",
-              "type": "String"
+              "type": "string"
             }
           ]
         },
         "Custom-SecurityEvent": {
           "columns": [{
               "name": "AccessList",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccessMask",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccessReason",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Account",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccountDomain",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccountExpires",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccountName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccountSessionIdentifier",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AccountType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Activity",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AdditionalInfo",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AdditionalInfo2",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AllowedToDelegateTo",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Attributes",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AuditPolicyChanges",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AuditsDiscarded",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "AuthenticationLevel",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "AuthenticationPackageName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AuthenticationProvider",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AuthenticationServer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AuthenticationService",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "AuthenticationType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AzureDeploymentID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "AzureTableName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CACertificateHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CalledStationID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CallerProcessId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CallerProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CallingStationID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CAPublicKeyHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CategoryId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CertificateDatabaseHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Channel",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ClassId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ClassName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ClientAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ClientIPAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ClientName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CommandLine",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "CompatibleIds",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Computer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Correlation",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DCDNSName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceDescription",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DeviceId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DisplayName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Disposition",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DomainBehaviorVersion",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DomainName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DomainPolicyChanged",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "DomainSid",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EAPType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ElevatedToken",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ErrorCode",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "EventData",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventID",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "EventLevelName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventOriginId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventRecordId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventSourceName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ExtendedQuarantineState",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FailureReason",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FileHash",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FilePath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FilePathNoUser",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Filter",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ForceLogoff",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Fqbn",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FullyQualifiedSubjectMachineName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "FullyQualifiedSubjectUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "GroupMembership",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HandleId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HardwareIds",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HomeDirectory",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HomePath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ImpersonationLevel",
-              "type": "String"
-            },
-            {
-              "name": "InterfaceUuid",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "IpAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "IpPort",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "KeyLength",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "Keywords",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Level",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LmPackageName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LocationInformation",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LockoutDuration",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LockoutObservationWindow",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LockoutThreshold",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LoggingResult",
-              "type": "String"
-            },
-            {
-              "name": "LogonGuid",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "LogonHours",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LogonID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LogonProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "LogonType",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "LogonTypeName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MachineAccountQuota",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MachineInventory",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MachineLogon",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ManagementGroupName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MandatoryLabel",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MaxPasswordAge",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MemberName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MemberSid",
-              "type": "String"
-            },
-            {
-              "name": "MG",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "MinPasswordAge",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MinPasswordLength",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "MixedDomainMode",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NASIdentifier",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NASIPv4Address",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NASIPv6Address",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NASPort",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NASPortType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NetworkPolicyName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewDate",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewMaxUsers",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewProcessId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewRemark",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewShareFlags",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewUacValue",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewValue",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "NewValueType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ObjectName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ObjectServer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ObjectType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ObjectValueName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OemInformation",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldMaxUsers",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldRemark",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldShareFlags",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldUacValue",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldValue",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OldValueType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Opcode",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "OperationType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PackageName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ParentProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PartitionKey",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PasswordHistoryLength",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PasswordLastSet",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PasswordProperties",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PreviousDate",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PreviousTime",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PrimaryGroupId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PrivateKeyUsageCount",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "PrivilegeList",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Process",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProcessId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProfilePath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Properties",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProtocolSequence",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ProxyPolicyName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "QuarantineHelpURL",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "QuarantineSessionID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "QuarantineSessionIdentifier",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "QuarantineState",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "QuarantineSystemHealthResult",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RelativeTargetName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RemoteIpAddress",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RemotePort",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Requester",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RequestId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RestrictedAdminMode",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RowKey",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RowsDeleted",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SamAccountName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ScriptPath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SecurityDescriptor",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ServiceAccount",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ServiceFileName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ServiceName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ServiceStartType",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "ServiceType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SessionName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ShareLocalPath",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ShareName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SidHistory",
-              "type": "String"
-            },
-            {
-              "name": "SourceComputerId",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "SourceSystem",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Status",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "StorageAccount",
-              "type": "String"
-            },
-            {
-              "name": "SubcategoryGuid",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "SubcategoryId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Subject",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectAccount",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectDomainName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectKeyIdentifier",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectLogonId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectMachineName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectMachineSID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubjectUserSid",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SubStatus",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SystemProcessId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SystemThreadId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SystemUserId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TableId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetAccount",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetDomainName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetInfo",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetLinkedLogonId",
-              "type": "String"
-            },
-            {
-              "name": "TargetLogonGuid",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "TargetLogonId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetOutboundDomainName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetOutboundUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetServerName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetSid",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetUser",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetUserName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TargetUserSid",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Task",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "TemplateContent",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TemplateDSObjectFQDN",
-              "type": "String"
+              "type": "string"
             },
             {
-              "name": "TemplateInternalName",
-              "type": "String"
+              "name": "TemplateinternalName",
+              "type": "string"
             },
             {
               "name": "TemplateOID",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TemplateSchemaVersion",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TemplateVersion",
-              "type": "String"
-            },
-            {
-              "name": "TenantId",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "TimeCollected",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "TimeGenerated",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "TokenElevationType",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "TransmittedServices",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Type",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "UserAccountControl",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "UserParameters",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "UserPrincipalName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "UserWorkstations",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "VendorIds",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Version",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "VirtualAccount",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Workstation",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "WorkstationName",
-              "type": "String"
+              "type": "string"
             }
           ]
         },
         "Custom-Syslog": {
           "columns": [{
               "name": "CollectorHostName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Computer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventTime",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "Facility",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HostIP",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "HostName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ManagementGroupName",
-              "type": "String"
-            },
-            {
-              "name": "MG",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "ProcessID",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "ProcessName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SeverityLevel",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceSystem",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SyslogMessage",
-              "type": "String"
-            },
-            {
-              "name": "TenantId",
-              "type": "Guid"
+              "type": "string"
             },
             {
               "name": "TimeCollected",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "TimeGenerated",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "Type",
-              "type": "String"
+              "type": "string"
             }
           ]
         },
         "Custom-WindowsEvent": {
           "columns": [{
               "name": "Channel",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Computer",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Correlation",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Data",
-              "type": "Dynamic"
+              "type": "dynamic"
             },
             {
               "name": "EventData",
-              "type": "Dynamic"
+              "type": "dynamic"
             },
             {
               "name": "EventID",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "EventLevel",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "EventLevelName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventOriginId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "EventRecordId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Keywords",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "ManagementGroupName",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Opcode",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Provider",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "RawEventData",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SourceSystem",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "SystemProcessId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SystemThreadId",
-              "type": "Int"
+              "type": "int"
             },
             {
               "name": "SystemUserId",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Task",
-              "type": "Int"
-            },
-            {
-              "name": "TenantId",
-              "type": "Guid"
+              "type": "int"
             },
             {
               "name": "TimeCreated",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "TimeGenerated",
-              "type": "Datetime"
+              "type": "datetime"
             },
             {
               "name": "Type",
-              "type": "String"
+              "type": "string"
             },
             {
               "name": "Version",
-              "type": "Int"
+              "type": "int"
             }
           ]
         }
