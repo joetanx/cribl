@@ -30,18 +30,29 @@ Ref:
 
 ### 2.2. Create DCR (Data Collection Rule) using [Cribl DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/)
 
-Go to the created DCE and copy the Resource ID in JSON view:
+#### 2.2.1. Required information for the DCR
+
+DCR Resource ID:
 
 ![image](https://github.com/user-attachments/assets/cc6c6a0d-f36c-4fce-9ffa-dabfdc15dc7c)
 
-Get the Resource ID for the target LAW (Log Analytics Workspace):
+Target LAW (Log Analytics Workspace) Resource ID:
 
 ![image](https://github.com/user-attachments/assets/5d23f14b-c070-429a-882c-1da525d70367)
 
-Deploy DCR from [Cribl DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/)
+#### 2.2.2. DCR template
+
+Cribl uses the [logs ingestion API](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-ingestion-api-overview) to push events to Sentinel and provides a [DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/) to implement the DCR data flow
+
+More details on [DCR data flow](https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-collection-rule-structure#overview-of-dcr-data-flow)
+
+A DCR template with complete mapping of columns to Sentinel tables is availabled here: [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/dcr_template.json)
+
+#### 2.2.3. Deploy the DCR template
+
 - Go to `Deploy a custom template`
 - Select `Build your own template in the editor`
-- Copy and paste the [Cribl DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/)
+- Copy and paste the [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/dcr_template.json)
 
 ![image](https://github.com/user-attachments/assets/447710cf-fe0a-4c83-84ac-f3489af66d8e)
 
@@ -77,21 +88,28 @@ Select the Cribl application:
 
 ![image](https://github.com/user-attachments/assets/8082053c-80f6-4852-a02a-8670258713a5)
 
-## 3. Configure data destination to Sentinel in Cribl
+## 2.4. Retrieve the logs ingestion API URI
 
-![image](https://github.com/user-attachments/assets/d7809f46-bf50-4bd6-b8ea-fb21cf28a6a1)
+Ref: https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-ingestion-api-overview#uri
 
-### 3.1. General Settings
+The URI consists of:
+- DCE
+- Region
+- DCR Immutable ID
+- Stream Name
+- API version
 
-Retrieving required information for configuration:
+```pwsh
+{Endpoint}.{Region}.ingest.monitor.azure.com//dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2023-01-01
+```
 
 |Field|Description|
 |---|---|
 |Data collection endpoint|Data collection endpoint (DCE) in the format `https://<endpoint-name>.<identifier>.<region>.ingest.monitor.azure.com`.<br>![image](https://github.com/user-attachments/assets/66bdcfde-8afe-4073-b288-753a37e276f0)|
 |Data collection rule ID|DCR Immutable ID:<br>![image](https://github.com/user-attachments/assets/ca1ad029-3eaf-476a-b3db-f404c1381225)|
-|Stream name|Name of the Sentinel table in which to store events.<br>![image](https://github.com/user-attachments/assets/eec7c4a2-5d68-4924-9ea8-48e391bf3fc0)|
+|Stream name|The `streamDeclarations` defined in the DCR:<<br>![image](https://github.com/user-attachments/assets/eec7c4a2-5d68-4924-9ea8-48e391bf3fc0)|
 
-Cribl provides the [Azure Resource Graph Explorer](https://docs.cribl.io/stream/usecase-azure-sentinel/#obtaining-url) to retrieve the required information
+Cribl provides a Azure Resource Graph Explorer [query](https://docs.cribl.io/stream/usecase-azure-sentinel/#obtaining-url) to retrieve the required information
 
 ```kusto
 Resources
@@ -105,6 +123,12 @@ Resources
 ```
 
 ![image](https://github.com/user-attachments/assets/74a62ad5-6624-48fc-916e-6db06bab8653)
+
+## 3. Configure data destination to Sentinel in Cribl
+
+![image](https://github.com/user-attachments/assets/d7809f46-bf50-4bd6-b8ea-fb21cf28a6a1)
+
+### 3.1. General Settings
 
 Configuration of Sentinel as data destination in Cribl can be done using `URL` or `ID`
 
