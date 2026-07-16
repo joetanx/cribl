@@ -28,7 +28,7 @@ Ref:
 
 ![image](https://github.com/user-attachments/assets/7d4bf64a-c578-4e21-85e1-8ef69c530135)
 
-### 2.2. Create DCR (Data Collection Rule) using [Cribl DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/)
+### 2.2. Create DCR (Data Collection Rule) using [Cribl DCR template](https://docs.cribl.io/stream/usecase-azure-workspace/#deploy-the-dcr-template)
 
 #### 2.2.1. Required information for the DCR
 
@@ -42,7 +42,7 @@ Target LAW (Log Analytics Workspace) Resource ID:
 
 #### 2.2.2. DCR template
 
-Cribl uses the [logs ingestion API](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-ingestion-api-overview) to push events to Sentinel and provides a [DCR template](https://docs.cribl.io/stream/usecase-webhook-azure-sentinel-dcr-template/) to implement the DCR data flow
+Cribl uses the [logs ingestion API](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-ingestion-api-overview) to push events to Sentinel and provides a [DCR template](https://docs.cribl.io/stream/usecase-azure-workspace/#deploy-the-dcr-template) to implement the DCR data flow
 
 More details on [DCR data flow](https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-collection-rule-structure#overview-of-dcr-data-flow)
 
