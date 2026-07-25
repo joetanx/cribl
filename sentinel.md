@@ -46,13 +46,13 @@ Cribl uses the [logs ingestion API](https://learn.microsoft.com/en-us/azure/azur
 
 More details on [DCR data flow](https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-collection-rule-structure#overview-of-dcr-data-flow)
 
-A DCR template with complete mapping of columns to Sentinel tables is availabled here: [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/dcr_template.json)
+A DCR template with complete mapping of columns to Sentinel tables is availabled here: [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/logs-ingestion-api/dcr_template.json)
 
 #### 2.2.3. Deploy the DCR template
 
 - Go to `Deploy a custom template`
 - Select `Build your own template in the editor`
-- Copy and paste the [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/dcr_template.json)
+- Copy and paste the [dcr_template.json](https://github.com/joetanx/sentinel/blob/main/logs-ingestion-api/dcr_template.json)
 
 ![image](https://github.com/user-attachments/assets/447710cf-fe0a-4c83-84ac-f3489af66d8e)
 
